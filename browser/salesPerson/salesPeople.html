@@ -1,0 +1,12 @@
+<div class='well'>
+  <div class='form-group'>
+    <input class='form-control' placeholder='Add Salesperson' ng-model='name'/>
+  </div>
+  <button class='btn btn-primary' ng-click='createSalesPerson()' ng-disabled='!name'>Add Salesperson</button>
+</div>
+<ul class='list-group'>
+  <li ng-repeat='salesPerson in salesPeople' class='list-group-item'>
+    {{ salesPerson.name }}
+    <button class="btn btn-danger" ng-click="deleteSalesPerson(salesPerson)">Delete</button>
+  </li>
+</ul>

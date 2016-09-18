@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.css' />
+	<script src='/angular/angular.js' defer></script>
+	<script src='/angular-ui-router/release/angular-ui-router.js' defer></script>
+	<script src='/app.js' defer></script>
+	<script src='/region/RegionService.js' defer></script>
+	<script src='/region/RegionsListCtrl.js' defer></script>
+	<script src='/salesPerson/SalesPersonListCtrl.js' defer></script>
+	<script src='/salesPerson/SalesPersonService.js' defer></script>
+	<script src='/CompanyStatusCtrl.js' defer></script>
+	<title>Acme Sales</title>
+</head>
+<body ng-app="acme">
+	<h1>Acme Sales</h1>
+	<div class="container">
+		<ul class="nav nav-tabs">
+			<li ui-sref-active="active"><a ui-sref="home">Home</a></li>
+			<li ui-sref-active="active"><a ui-sref="salesPeople">Sales People</a></li>
+			<li ui-sref-active="active"><a ui-sref="regions">Regions</a></li>
+		</ul>
+	</div>
+	<div class="container" ng-controller="CompanyStatusCtrl">
+		<ul class="list-group">
+			<li class="list-group-item" ng-class="{'list-group-item-success': salesPeople.length > 3}" >There are {{ salesPeople.length }} salespeople</li>
+			<li class="list-group-item" ng-class="{'list-group-item-success': regions.length > 3}">There are {{ regions.length }} regions</li>
+		</ul>
+	</div>
+	<ui-view></ui-view>
+</body>
+</html>
