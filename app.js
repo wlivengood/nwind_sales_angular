@@ -16,3 +16,7 @@ app.get('/', function(req, res, next) {
 	res.sendFile(__dirname + '/index.html');
 });
 
+app.use(function (err, req, res, next) {
+    console.error(err);
+    res.status(500).send(err.message);
+});
