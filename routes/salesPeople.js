@@ -15,8 +15,8 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
 	SalesPerson.create({name: req.body.name})
-	.then(function(newSalesPerson) {
-		res.send(newSalesPerson);
+	.then(function(salesPerson) {
+		res.send(salesPerson);
 	})
 	.catch(next);
 });

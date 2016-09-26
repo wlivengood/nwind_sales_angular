@@ -12,7 +12,7 @@ acme.factory('RegionService', function($http) {
 		});
 	};
 
-	RegionService.deleteRegion = function(region) {
+	RegionService.destroy = function(region) {
 		return $http.delete('/api/regions/' + region.id)
 		.then(function(){
 			var idx = regions.indexOf(region);
@@ -20,9 +20,10 @@ acme.factory('RegionService', function($http) {
 		});
 	};
 
-	RegionService.createRegion = function(zip) {
-		return $http.post('/api/regions', zip)
+	RegionService.create = function(region) {
+		return $http.post('/api/regions', region)
 		.then(function(result) {
+      regions.push(result.data);
 			return result.data;
 		});
 	};

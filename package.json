@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "SYNC=true DATABASE_URL=postgres://localhost/acme_regions nodemon --ignore 'browser' server.js"
+    "start:dev": "SYNC=true DATABASE_URL=postgres://localhost/acme nodemon --ignore 'browser' server.js"
   },
   "keywords": [],
   "author": "",

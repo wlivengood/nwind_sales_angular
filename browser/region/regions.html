@@ -1,12 +1,12 @@
-<div class='well'>
+<form name='form' class='well'>
   <div class='form-group'>
-    <input class='form-control' placeholder='Add Region' ng-model='zip'/>
+    <input required class='form-control' placeholder='Add Region' ng-model='region.zip'/>
   </div>
-  <button class='btn btn-primary' ng-click='createRegion()' ng-disabled='!zip'>Add Region</button>
-</div>
+  <button class='btn btn-primary' ng-click='create()' ng-disabled='form.$invalid'>Add Region</button>
+</form>
 <ul class='list-group'>
   <li ng-repeat='region in regions' class='list-group-item'>
     {{ region.zip }}
-    <button class="btn btn-danger" ng-click="deleteRegion(region)">Delete</button>
+    <button class="btn btn-danger" ng-click="destroy(region)">Delete</button>
   </li>
 </ul>

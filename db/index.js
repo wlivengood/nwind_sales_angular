@@ -1,25 +1,7 @@
-const Sequelize = require('sequelize');
+var db = require('./_db');
+var SalesPerson = require('./salesPerson');
+var Region = require('./region');
 
-var db = new Sequelize(process.env.DATABASE_URL);
-
-var SalesPerson = db.define('salesPerson', {
-	name: {
-		type: Sequelize.STRING,
-		allowNull: false
-	}
-});
-
-var Region = db.define('region', {
-	zip: {
-		type: Sequelize.STRING,
-		allowNull: false,
-		unique: true,
-		validate: {
-			isNumeric: true,
-			len: [5]
-		}
-	}
-});
 
 module.exports = {
 	models: {

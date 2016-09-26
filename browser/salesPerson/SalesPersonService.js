@@ -12,7 +12,7 @@ acme.factory('SalesPersonService', function($http) {
 		});
 	};
 
-	SalesPersonService.deleteSalesPerson = function(salesPerson) {
+	SalesPersonService.destroy = function(salesPerson) {
 		return $http.delete('/api/salesPeople/' + salesPerson.id)
 		.then(function(){
 			var idx = salesPeople.indexOf(salesPerson);
@@ -20,9 +20,10 @@ acme.factory('SalesPersonService', function($http) {
 		});
 	};
 
-	SalesPersonService.createSalesPerson = function(name) {
+	SalesPersonService.create = function(name) {
 		return $http.post('/api/salesPeople', name)
 		.then(function(result) {
+      salesPeople.push(result.data);
 			return result.data;
 		});
 	};

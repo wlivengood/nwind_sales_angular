@@ -1,12 +1,12 @@
-<div class='well'>
+<form name='form' class='well'>
   <div class='form-group'>
-    <input class='form-control' placeholder='Add Salesperson' ng-model='name'/>
+    <input class='form-control' placeholder='Add Salesperson' ng-model='salesPerson.name' required/>
   </div>
-  <button class='btn btn-primary' ng-click='createSalesPerson()' ng-disabled='!name'>Add Salesperson</button>
-</div>
+  <button class='btn btn-primary' ng-click='create()' ng-disabled='form.$invalid'>Add Salesperson</button>
+</form>
 <ul class='list-group'>
   <li ng-repeat='salesPerson in salesPeople' class='list-group-item'>
     {{ salesPerson.name }}
-    <button class="btn btn-danger" ng-click="deleteSalesPerson(salesPerson)">Delete</button>
+    <button class="btn btn-danger" ng-click="destroy(salesPerson)">Delete</button>
   </li>
 </ul>

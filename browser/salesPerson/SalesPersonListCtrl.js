@@ -7,16 +7,15 @@ acme.controller('SalesPersonListCtrl', function($scope, SalesPersonService) {
 		console.log(err);
 	});
 
-	$scope.deleteSalesPerson = SalesPersonService.deleteSalesPerson;
+	$scope.destroy = SalesPersonService.destroy;
 
-	$scope.createSalesPerson = function() {
-		SalesPersonService.createSalesPerson({name: $scope.name})
-		.then(function(salesPerson) {
-			$scope.salesPeople.push(salesPerson);
-		})
+	$scope.create = function() {
+		SalesPersonService.create($scope.salesPerson)
+    .then(function(){
+      $scope.salesPerson = null;
+    })
 		.catch(function(err) {
 			console.log(err);
 		});
-		$scope.name = "";
 	}
 });

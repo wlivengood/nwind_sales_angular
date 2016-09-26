@@ -16,16 +16,16 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
 	console.log(req.body);
 	Region.create({zip: req.body.zip})
-	.then(function(newRegion) {
-		res.send(newRegion);
-	})
-	.catch(next);
+    .then(function(newRegion) {
+      res.send(newRegion);
+    })
+    .catch(next);
 });
 
 router.delete('/:id', function(req, res, next) {
 	Region.destroy({ where: { id: req.params.id } })
-	.then(function() {
-		res.sendStatus(200);
-	})
-	.catch(next);
+    .then(function() {
+      res.sendStatus(200);
+    })
+    .catch(next);
 });

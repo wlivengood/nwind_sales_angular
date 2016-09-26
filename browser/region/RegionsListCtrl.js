@@ -7,16 +7,17 @@ acme.controller('RegionsListCtrl', function($scope, RegionService) {
 		console.log(err);
 	});
 
-	$scope.deleteRegion = RegionService.deleteRegion;
+	$scope.destroy = function(region){
+    RegionService.destroy(region);
+  };
 
-	$scope.createRegion = function() {
-		RegionService.createRegion({zip: $scope.zip})
-		.then(function(region) {
-			$scope.regions.push(region);
-		})
-		.catch(function(err) {
-			console.log(err);
-		});
-		$scope.zip = "";
+	$scope.create = function() {
+		RegionService.create($scope.region)
+      .then(function(){
+        $scope.region = null;
+      })
+      .catch(function(err){
+        console.log(err);
+      });
 	}
 });
